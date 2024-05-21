@@ -87,6 +87,9 @@ public class GlavniProzor extends javax.swing.JFrame {
         jLabel3.setText("Kategorija");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resursi/plus (1).png"))); // NOI18N
+        jButton1.setText("Prijava");
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -94,6 +97,9 @@ public class GlavniProzor extends javax.swing.JFrame {
         });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resursi/remove.png"))); // NOI18N
+        jButton2.setText("Izlaz");
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -122,12 +128,12 @@ public class GlavniProzor extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,10 +154,10 @@ public class GlavniProzor extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))))
-                .addContainerGap(193, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Unesi prijavu", jPanel1);
@@ -168,13 +174,10 @@ public class GlavniProzor extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -346,20 +349,7 @@ public class GlavniProzor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            PreparedStatement ps = c.prepareStatement("DELETE FROM Rezultat WHERE PasID = ? AND IzlozbaID = ? AND KategorijaID = ?");
-            ps.setInt(1, ((PasDO) jComboBox1.getSelectedItem()).ID);
-            ps.setInt(2, ((IzlozbaDO) jComboBox2.getSelectedItem()).ID);
-            ps.setInt(3, ((KategorijaDO) jComboBox3.getSelectedItem()).ID);
-            if (ps.executeUpdate() == 1) {
-                JOptionPane.showMessageDialog(this, "Uspesan obrisano", "Uspeh!", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, "Nije nista obrisano", "Upozorenje!", JOptionPane.WARNING_MESSAGE);
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "Greska prilikom upisa u bazu", "Greska!", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(GlavniProzor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -537,7 +527,7 @@ public class GlavniProzor extends javax.swing.JFrame {
                 dcbm4.addElement(izlozba);
             }
             jComboBox4.setModel(dcbm4);
-
+            jComboBox4.setSelectedIndex(-1);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Greska prilikom povezivanja s bazom", "Greska!", JOptionPane.ERROR_MESSAGE);
             Logger.getLogger(GlavniProzor.class.getName()).log(Level.SEVERE, null, ex);
