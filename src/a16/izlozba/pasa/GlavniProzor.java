@@ -492,7 +492,7 @@ public class GlavniProzor extends javax.swing.JFrame {
     private void populate() {
         try {
             Statement s = c.createStatement();
-            ResultSet rs1 = s.executeQuery("SELECT * FROM Rasa");
+            ResultSet rs1 = s.executeQuery("SELECT * FROM Pas");
             DefaultComboBoxModel<PasDO> dcbm1 = new DefaultComboBoxModel<>();
 
             ResultSet rs2 = s.executeQuery("SELECT * FROM Izlozba");
@@ -506,8 +506,8 @@ public class GlavniProzor extends javax.swing.JFrame {
 
             while (rs1.next()) {
                 PasDO pas = new PasDO();
-                pas.ID = rs1.getInt("RasaID");
-                pas.naziv = rs1.getString("NazivRase");
+                pas.ID = rs1.getInt("PasID");
+                pas.naziv = rs1.getString("Ime");
                 dcbm1.addElement(pas);
             }
             jComboBox1.setModel(dcbm1);
